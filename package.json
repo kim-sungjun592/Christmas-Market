@@ -1,0 +1,26 @@
+{
+  "name": "vertclub-storefront",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "packageManager": "npm@10.9.9",
+  "scripts": {
+    "dev": "npm run build && node server.mjs",
+    "build": "vite build && vite build --ssr app/entry-server.tsx",
+    "start": "node server.mjs",
+    "typecheck": "tsc --noEmit && hydrogen gql check"
+  },
+  "dependencies": {
+    "@shopify/hydrogen": "2026.10.3",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.1.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.0"
+  }
+}

@@ -1,0 +1,3 @@
+.runtime-notice { position: relative; z-index: 100; padding: 14px 24px; background: #b3262e; color: #fff; font: 600 14px/1.5 system-ui, sans-serif; text-align: center; }
+.runtime-notice small { display: block; font-weight: 400; }
+.runtime-error { position: fixed; z-index: 10000; left: 1rem; bottom: 1rem; max-width: 36rem; padding: 1rem; background: #fff; color: #741820; border: 2px solid #b3262e; font: 14px/1.4 system-ui, sans-serif; }
