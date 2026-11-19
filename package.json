@@ -5,9 +5,9 @@
   "type": "module",
   "packageManager": "npm@10.9.9",
   "scripts": {
-    "dev": "npm run build && node server.mjs",
+    "dev": "npm run build && node --env-file-if-exists=.env server.mjs",
     "build": "vite build && vite build --ssr app/entry-server.tsx",
-    "start": "node server.mjs",
+    "start": "node --env-file-if-exists=.env server.mjs",
     "typecheck": "tsc --noEmit && hydrogen gql check"
   },
   "dependencies": {
