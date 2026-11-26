@@ -1,0 +1,1077 @@
+/* ============================================================
+   Christmas Market — 깔끔한 크리스마스 상점 스타일 (Shop 페이지와 같은 톤)
+   ============================================================ */
+:root {
+  --pine: #173d32;
+  --pine-deep: #102e27;
+  --cream: #f7f4ec;
+  --paper: #fbfaf6;
+  --gold: #c9a767;
+  --gold-deep: #a08b60;
+  --rose: #a24d4b;
+  --ink: #292c27;
+  --muted: #79786d;
+  --line: #e6e1d7;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+body {
+  font-family: "Noto Sans KR", "DM Sans", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  min-height: 100vh;
+}
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: 0;
+}
+
+/* ---------- 헤더 ---------- */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  height: 64px;
+  padding: 0 5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(251, 250, 246, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.logo {
+  padding: 0;
+  background: none;
+  font:
+    400 22px "Gowun Batang",
+    serif;
+  letter-spacing: -0.02em;
+  color: var(--pine);
+}
+.nav-r {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.nav-user {
+  margin-right: 6px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.icon-btn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--pine);
+  transition: background 0.2s;
+}
+.icon-btn:hover {
+  background: var(--cream);
+}
+.icon-badge {
+  position: absolute;
+  top: 3px;
+  right: 1px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--rose);
+  color: #fff;
+  font:
+    600 10px/16px "DM Sans",
+    sans-serif;
+  text-align: center;
+}
+
+/* ---------- 버튼 ---------- */
+.btn {
+  padding: 11px 18px;
+  border-radius: 4px;
+  background: var(--pine);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.btn:hover {
+  background: var(--pine-deep);
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.btn.full {
+  width: 100%;
+  margin-top: 16px;
+  padding: 14px;
+  font-size: 14px;
+}
+.btn.sm {
+  padding: 7px 14px;
+  border: 1px solid #ddd7ca;
+  background: transparent;
+  color: var(--pine);
+  font-size: 12px;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.btn.sm:hover {
+  border-color: var(--pine);
+  background: var(--pine);
+  color: #fff;
+}
+
+/* ---------- 히어로 (눈 내리는 거실 이미지) ---------- */
+.hero {
+  padding-top: 88px;
+}
+.scene {
+  position: relative;
+  width: min(1349px, 90%);
+  margin: 0 auto;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #293d30;
+  container-type: inline-size;
+}
+.scene img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 700px;
+  object-fit: cover;
+  object-position: top;
+}
+.window-snow {
+  position: absolute;
+  left: 36.4%;
+  top: 5.77cqw;
+  width: 31.1%;
+  height: 27.86cqw;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+.scene-title {
+  position: absolute;
+  left: 5%;
+  top: 6%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2cqw;
+  pointer-events: none;
+}
+.st-main {
+  margin-top: 13%;
+  font-family: "Mountains of Christmas", cursive;
+  font-weight: 700;
+  font-size: 10cqw;
+  line-height: 1;
+  background: linear-gradient(to bottom, #fff3c4 0%, #f0c96a 45%, #b8862b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 0 rgba(90, 23, 16, 0.85))
+    drop-shadow(0 3px 14px rgba(0, 0, 0, 0.45));
+}
+.st-main i {
+  font-style: normal;
+  font-size: 0.45em;
+  margin: 0 0.3em;
+  vertical-align: middle;
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+  animation: twinkle 2.4s infinite;
+}
+.st-main i:last-child {
+  animation-delay: 1.2s;
+}
+@keyframes twinkle {
+  50% {
+    opacity: 0.35;
+    transform: scale(0.8) rotate(25deg);
+  }
+}
+.st-cta {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 22px;
+  border-radius: 4px;
+  background: rgba(251, 250, 246, 0.95);
+  color: var(--pine);
+  font:
+    600 12px "DM Sans",
+    sans-serif;
+  letter-spacing: 0.14em;
+  transition: all 0.2s;
+}
+.st-cta:hover {
+  background: var(--gold);
+  color: #fff;
+}
+
+/* ---------- 본문 / 섹션 제목 ---------- */
+.wrap {
+  width: min(1349px, 90%);
+  margin: 0 auto;
+  padding: 80px 0;
+}
+.section-title {
+  margin-bottom: 40px;
+  text-align: center;
+  font:
+    400 30px "Gowun Batang",
+    serif;
+  letter-spacing: -0.02em;
+  color: var(--pine);
+}
+.section-title::after {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 1px;
+  margin: 14px auto 0;
+  background: var(--gold);
+}
+
+/* ---------- 상품 (BEST PRESENT / 트리 공통) ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+.product {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.pick {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #eee9df;
+}
+.pick img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.25, 1);
+}
+.product:hover .pick img {
+  transform: scale(1.045);
+}
+/* 찜하기 하트 버튼 (상품 이미지 오른쪽 위) */
+.wish-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 254, 249, 0.93);
+  color: var(--pine);
+  transition:
+    transform 0.2s,
+    color 0.2s;
+}
+.wish-btn:hover {
+  transform: scale(1.08);
+}
+.wish-btn.is-active {
+  color: var(--rose);
+}
+.p-name {
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #343a33;
+}
+.p-desc {
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.p-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+.p-price {
+  font:
+    600 15px "DM Sans",
+    sans-serif;
+  color: var(--pine);
+}
+
+/* ---------- 트리 섹션 ---------- */
+.tree-section {
+  margin-top: 96px;
+}
+.tree-hero {
+  max-width: 1400px;
+  max-height: 480px;
+  margin: 0 auto 24px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.tree-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.tree-split {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 20px;
+}
+
+/* 왼쪽: 트리 상품 패널 (옆으로 스크롤) */
+.tree-panel {
+  min-width: 0;
+  padding: 28px 28px 14px;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.panel-title {
+  font:
+    400 22px "Gowun Batang",
+    serif;
+  color: var(--pine);
+  word-break: keep-all;
+}
+.panel-sub {
+  margin: 6px 0 16px;
+  font-size: 12px;
+  color: var(--muted);
+  word-break: keep-all;
+}
+.tree-banner {
+  position: relative;
+}
+.tree-track {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 6px 2px 14px;
+  scrollbar-width: none;
+}
+.tree-track::-webkit-scrollbar {
+  display: none;
+}
+/* 트리 카드 크기: 이 숫자(170px)만 바꾸면 돼요 */
+.tree-item {
+  flex: 0 0 170px;
+  width: 170px;
+}
+.tree-panel .p-name {
+  margin-top: 10px;
+  font-size: 13px;
+}
+.tree-panel .p-desc {
+  display: none; /* 설명을 보이게 하려면 이 줄 삭제 */
+}
+.tree-panel .p-price {
+  font-size: 13px;
+}
+.tree-arrow {
+  position: absolute;
+  top: 91px;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--line);
+  color: var(--pine);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s;
+}
+.tree-arrow:hover {
+  background: var(--pine);
+  border-color: var(--pine);
+  color: #fff;
+}
+.tree-arrow.left {
+  left: -16px;
+}
+.tree-arrow.right {
+  right: -16px;
+}
+
+/* 오른쪽: 프로모 배너 */
+.tree-promo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 380px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--pine);
+}
+.promo-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 64%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+}
+.tree-promo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    var(--pine) 38%,
+    rgba(23, 61, 50, 0.65) 55%,
+    rgba(23, 61, 50, 0) 80%
+  );
+}
+.promo-text {
+  position: relative;
+  z-index: 1;
+  max-width: 56%;
+  padding: 36px;
+  color: #fff;
+}
+.promo-text h3 {
+  font:
+    400 26px/1.4 "Gowun Batang",
+    serif;
+  word-break: keep-all;
+}
+.promo-text p {
+  margin: 12px 0 22px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.82);
+  word-break: keep-all;
+}
+.promo-btn {
+  padding: 11px 20px;
+  border-radius: 4px;
+  background: var(--paper);
+  color: var(--pine);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.promo-btn:hover {
+  background: var(--gold);
+  color: #fff;
+}
+
+/* ---------- 푸터 ---------- */
+.site-footer {
+  min-height: 56px;
+  padding: 0 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background: var(--pine-deep);
+  color: rgba(245, 239, 226, 0.67);
+  font:
+    500 10px "DM Sans",
+    sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ---------- 모달 (로그인 / 결제) ---------- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(16, 46, 39, 0.45);
+  backdrop-filter: blur(2px);
+}
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  max-height: 92vh;
+  overflow: auto;
+  padding: 32px 28px 28px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 24px 60px rgba(16, 46, 39, 0.2);
+}
+.modal h2 {
+  margin-bottom: 16px;
+  font:
+    400 24px "Gowun Batang",
+    serif;
+  color: var(--pine);
+}
+.x {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  font-size: 18px;
+  color: var(--muted);
+}
+.field {
+  display: block;
+  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+}
+.field input {
+  width: 100%;
+  margin-top: 5px;
+  padding: 11px 12px;
+  border: 1px solid #e0dace;
+  border-radius: 4px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 14px;
+}
+.field input:focus {
+  outline: 2px solid rgba(23, 61, 50, 0.3);
+  border-color: var(--pine);
+}
+.two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.err {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--rose);
+}
+.link {
+  display: block;
+  width: 100%;
+  margin-top: 14px;
+  background: none;
+  color: var(--muted);
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.sum {
+  margin-bottom: 6px;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.done {
+  text-align: center;
+}
+.done-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 14px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--pine);
+}
+
+/* ---------- 장바구니 / 찜 팝업 ---------- */
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 60;
+  width: min(400px, 100vw);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  color: var(--ink);
+  border-left: 1px solid var(--line);
+  box-shadow: -12px 0 40px rgba(16, 46, 39, 0.15);
+}
+.drawer-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font:
+    400 22px "Gowun Batang",
+    serif;
+  color: var(--pine);
+}
+.drawer .list {
+  flex: 1;
+  overflow: auto;
+  margin: 14px 0;
+}
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+.item .thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+.item .info {
+  flex: 1;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.item .info b {
+  font-weight: 500;
+}
+.qty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+.qty button {
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  background: #fff;
+  border: 1px solid #ddd7ca;
+  color: var(--pine);
+}
+.qty button:hover {
+  background: var(--pine);
+  border-color: var(--pine);
+  color: #fff;
+}
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.price {
+  font:
+    600 16px "DM Sans",
+    sans-serif;
+  color: var(--pine);
+}
+.empty-note,
+.wish-empty {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.wish-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+.wish-remove {
+  padding: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 11px;
+  text-decoration: underline;
+}
+
+/* ---------- 토스트 ---------- */
+.cart-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: calc(100vw - 32px);
+  padding: 12px 16px;
+  border-radius: 6px;
+  background: var(--pine-deep);
+  color: #fbf7ec;
+  border: 1px solid rgba(224, 197, 139, 0.38);
+  box-shadow: 0 8px 28px rgba(11, 24, 17, 0.25);
+  font-size: 13px;
+  animation:
+    toast-in 0.25s ease-out,
+    toast-out 0.3s ease-in 1.7s forwards;
+}
+.cart-toast-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--pine-deep);
+  font-size: 12px;
+  font-weight: 700;
+}
+.cart-toast button {
+  flex: none;
+  padding: 0 0 0 4px;
+  background: none;
+  color: #dcc282;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: underline;
+}
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 16px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+@keyframes toast-out {
+  to {
+    opacity: 0;
+    transform: translate(-50%, 16px);
+  }
+}
+
+/* ---------- 반응형 ---------- */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .tree-split {
+    grid-template-columns: 1fr;
+  }
+  .tree-promo {
+    min-height: 320px;
+  }
+}
+@media (max-width: 600px) {
+  .nav {
+    padding: 0 4vw;
+  }
+  .logo {
+    font-size: 18px;
+    white-space: nowrap;
+  }
+  .nav-user {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 76px;
+  }
+  .scene-title {
+    top: 5%;
+    gap: 3cqw;
+  }
+  .st-main {
+    margin-top: 0;
+    font-size: 13cqw;
+  }
+  .st-cta {
+    padding: 9px 16px;
+    font-size: 10px;
+  }
+
+  .wrap {
+    padding: 56px 0;
+  }
+  .section-title {
+    margin-bottom: 28px;
+    font-size: 26px;
+  }
+  .grid {
+    gap: 22px 12px;
+  }
+  .p-name {
+    font-size: 13px;
+  }
+  .p-desc {
+    font-size: 11px;
+  }
+  .p-price {
+    font-size: 13px;
+  }
+  .btn.sm {
+    padding: 6px 10px;
+  }
+  .wish-btn {
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .tree-section {
+    margin-top: 72px;
+  }
+  .tree-panel {
+    padding: 22px 18px 10px;
+  }
+  .tree-item {
+    flex: 0 0 150px;
+    width: 150px;
+  }
+  .tree-arrow {
+    top: 81px;
+  }
+  .tree-arrow.left {
+    left: -10px;
+  }
+  .tree-arrow.right {
+    right: -10px;
+  }
+  .promo-img {
+    width: 100%;
+  }
+  .tree-promo::after {
+    background: linear-gradient(
+      180deg,
+      rgba(23, 61, 50, 0.96) 35%,
+      rgba(23, 61, 50, 0.35) 100%
+    );
+  }
+  .promo-text {
+    max-width: 100%;
+    padding: 28px 22px;
+  }
+  .site-footer {
+    min-height: 48px;
+    padding: 0 5%;
+    font-size: 9px;
+  }
+  .cart-toast {
+    bottom: 20px;
+    font-size: 12px;
+  }
+}
+/* ---------- 공통 푸터 ---------- */
+.site-footer {
+  display: block;
+  border-top: 1px solid var(--line, #e6e1d7);
+  background: #f4f0e6;
+  color: var(--ink, #292c27);
+  font-family: "Noto Sans KR", "DM Sans", sans-serif;
+}
+.site-footer * {
+  box-sizing: border-box;
+}
+.sf-inner {
+  width: min(1349px, 90%);
+  margin: 0 auto;
+  padding: 56px 0 42px;
+}
+.sf-top {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  gap: 36px 28px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--line, #e6e1d7);
+}
+.sf-eyebrow {
+  margin: 0 0 8px;
+  font:
+    600 10px "DM Sans",
+    sans-serif;
+  letter-spacing: 0.19em;
+  color: var(--gold-deep, #a08b60);
+}
+.sf-logo {
+  margin: 0 0 12px;
+  font:
+    400 22px "Gowun Batang",
+    serif;
+  color: var(--pine, #173d32);
+}
+.sf-desc {
+  max-width: 340px;
+  margin: 0 0 14px;
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: var(--muted, #79786d);
+  word-break: keep-all;
+}
+.sf-notice {
+  display: inline-block;
+  margin: 0;
+  padding: 6px 11px;
+  border-radius: 4px;
+  background: rgba(23, 61, 50, 0.06);
+  font-size: 11.5px;
+  color: var(--pine, #173d32);
+  word-break: keep-all;
+}
+.sf-col h3 {
+  margin: 2px 0 15px;
+  font:
+    600 11px "DM Sans",
+    sans-serif;
+  letter-spacing: 0.16em;
+  color: var(--pine, #173d32);
+}
+.sf-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sf-col li button {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 12.5px;
+  color: #5d5e56;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.18s;
+}
+.sf-col li button:hover {
+  color: var(--pine, #173d32);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.sf-tel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font:
+    600 19px "DM Sans",
+    sans-serif;
+  color: var(--pine, #173d32);
+  text-decoration: none;
+}
+.sf-meta {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  margin: 0 0 8px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--muted, #79786d);
+  word-break: keep-all;
+}
+.sf-meta svg {
+  flex: 0 0 auto;
+  margin-top: 3px;
+  color: var(--gold-deep, #a08b60);
+}
+.sf-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  padding-top: 26px;
+}
+.sf-address {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.8;
+  color: #8a877c;
+  word-break: keep-all;
+}
+.sf-address span + span::before {
+  content: "|";
+  margin: 0 8px;
+  color: #d3cdc0;
+}
+.sf-address br + span::before {
+  display: none;
+}
+.sf-copy {
+  margin: 10px 0 0;
+  font:
+    400 11px "DM Sans",
+    sans-serif;
+  letter-spacing: 0.04em;
+  color: #969184;
+}
+.sf-topbtn {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 14px;
+  border: 1px solid #d5cebf;
+  border-radius: 4px;
+  background: var(--paper, #fbfaf6);
+  color: var(--pine, #173d32);
+  font:
+    600 11px "DM Sans",
+    sans-serif;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.sf-topbtn:hover {
+  border-color: var(--pine, #173d32);
+  background: var(--pine, #173d32);
+  color: #ffffff;
+}
+
+@media (max-width: 960px) {
+  .sf-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 24px;
+  }
+}
+@media (max-width: 600px) {
+  .sf-inner {
+    padding: 42px 0 34px;
+  }
+  .sf-top {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+  .sf-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

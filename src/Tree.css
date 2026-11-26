@@ -1,0 +1,428 @@
+/* ============================================================
+   트리 전용 페이지 (Tree.jsx) — index.css의 색상 변수를 같이 써요
+   ============================================================ */
+.tp-page {
+  min-height: 100vh;
+  padding: 75px 0 80px;
+  background: var(--paper, #fbfaf6);
+  color: var(--ink, #292c27);
+  font-family: "Noto Sans KR", "DM Sans", sans-serif;
+}
+.tp-page * {
+  box-sizing: border-box;
+}
+.tp-page button {
+  font: inherit;
+  cursor: pointer;
+  border: 0;
+}
+
+/* ---------- 상단 풀와이드 히어로 슬라이더 ---------- */
+.tp-hero-slider {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  margin-bottom: 72px;
+  overflow: hidden;
+  background: #1d2b24;
+}
+.tp-hero-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.65s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.tp-hero-slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+}
+/* 글씨 가독성을 위한 은은한 좌측 그라데이션 */
+.tp-hero-slide.is-white::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.52) 0%,
+    rgba(0, 0, 0, 0.18) 55%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+.tp-hero-slide.is-black::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(255, 255, 255, 0.28) 55%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+.tp-hero-inner {
+  position: relative;
+  z-index: 1;
+  width: min(1349px, 90%);
+  margin: 0 auto;
+  padding: 0 44px;
+}
+.tp-hero-caption {
+  max-width: 560px;
+  text-align: left;
+}
+.tp-hero-caption h2 {
+  margin: 0 0 14px;
+  font-size: clamp(26px, 3.2vw, 42px);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.03em;
+  white-space: pre-line;
+  word-break: keep-all;
+}
+.tp-hero-caption p {
+  margin: 0 0 26px;
+  font-size: clamp(14px, 1.3vw, 17px);
+  line-height: 1.65;
+  white-space: pre-line;
+  word-break: keep-all;
+}
+.tp-hero-slide.is-white .tp-hero-caption h2,
+.tp-hero-slide.is-white .tp-hero-caption p {
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.28);
+}
+.tp-hero-slide.is-black .tp-hero-caption h2 {
+  color: #1a1c19;
+}
+.tp-hero-slide.is-black .tp-hero-caption p {
+  color: #363934;
+}
+
+/* 바로가기 버튼 (button-3d button-rounded 스타일 재현) */
+.tp-hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 6px;
+  background: #4b4f4c;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 3px 0 #2f3230;
+  transition:
+    transform 0.15s,
+    background 0.2s,
+    box-shadow 0.15s;
+}
+.tp-hero-btn:hover {
+  background: var(--pine, #173d32);
+  box-shadow: 0 3px 0 #0e261f;
+  transform: translateY(-1px);
+}
+.tp-hero-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #0e261f;
+}
+
+/* 좌우 화살표 버튼 */
+.tp-hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.32);
+  color: #ffffff;
+  transition: background 0.2s;
+}
+.tp-hero-arrow:hover {
+  background: rgba(0, 0, 0, 0.58);
+}
+.tp-hero-arrow.is-prev {
+  left: 18px;
+}
+.tp-hero-arrow.is-next {
+  right: 18px;
+}
+
+/* 하단 페이지네이션 점 */
+.tp-hero-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  gap: 8px;
+}
+.tp-hero-dots button {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.48);
+  transition:
+    width 0.25s,
+    background 0.25s;
+}
+.tp-hero-dots button.is-active {
+  width: 24px;
+  background: #ffffff;
+}
+
+/* ---------- 목록 ---------- */
+.tp-eyebrow {
+  font:
+    600 10px "DM Sans",
+    sans-serif;
+  letter-spacing: 0.19em;
+  color: var(--gold-deep, #a08b60);
+}
+.tp-catalog {
+  width: min(1349px, 90%);
+  margin: 0 auto;
+  scroll-margin-top: 80px;
+}
+.tp-heading {
+  padding-bottom: 21px;
+  border-bottom: 1px solid var(--line, #e6e1d7);
+}
+.tp-heading h2 {
+  margin: 8px 0 5px;
+  font:
+    400 30px "Gowun Batang",
+    serif;
+  color: var(--pine, #173d32);
+}
+.tp-sub {
+  font-size: 12px;
+  color: var(--muted, #79786d);
+}
+.tp-filter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0 10px;
+  border-bottom: 1px solid #e9e4da;
+}
+.tp-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.tp-pills button {
+  min-height: 34px;
+  padding: 0 16px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  background: transparent;
+  color: #77766c;
+  font-size: 12px;
+  transition: all 0.18s;
+}
+.tp-pills button:hover {
+  border-color: #d5cab1;
+  color: var(--pine, #173d32);
+}
+.tp-pills button.is-selected {
+  border-color: var(--pine, #173d32);
+  background: var(--pine, #173d32);
+  color: #fff;
+}
+.tp-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex: 0 0 auto;
+  background: transparent;
+  color: #6a6c62;
+  font-size: 12px;
+}
+.tp-result-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0 2px;
+  font-size: 11px;
+  color: #969184;
+}
+.tp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px 19px;
+  padding-top: 11px;
+}
+.tp-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.tp-card-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 4.7;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #eee9df;
+}
+.tp-card-image > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.25, 1);
+}
+.tp-card:hover .tp-card-image > img {
+  transform: scale(1.045);
+}
+.tp-fav {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 254, 249, 0.93);
+  color: var(--pine, #173d32);
+  transition:
+    transform 0.2s,
+    color 0.2s;
+}
+.tp-fav:hover {
+  transform: scale(1.08);
+}
+.tp-fav.is-active {
+  color: var(--rose, #a24d4b);
+}
+.tp-quick {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 4px;
+  background: rgba(255, 254, 249, 0.95);
+  color: var(--pine, #173d32);
+  font-size: 12px;
+  opacity: 0;
+  transform: translateY(7px);
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+}
+.tp-card:hover .tp-quick,
+.tp-quick:focus-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.tp-size {
+  margin: 14px 0 5px;
+  font-size: 11px;
+  color: #9c8b6a;
+}
+.tp-card h3 {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #343a33;
+}
+.tp-desc {
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted, #79786d);
+}
+.tp-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.tp-bottom strong {
+  font:
+    600 15px "DM Sans",
+    sans-serif;
+  color: var(--pine, #173d32);
+}
+.tp-bottom button {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid #ddd7ca;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--pine, #173d32);
+  transition: all 0.2s;
+}
+.tp-bottom button:hover {
+  border-color: var(--pine, #173d32);
+  background: var(--pine, #173d32);
+  color: #fff;
+}
+
+/* ---------- 반응형 ---------- */
+@media (max-width: 900px) {
+  .tp-hero-slider {
+    height: 420px;
+  }
+  .tp-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px 14px;
+  }
+  .tp-quick {
+    display: none;
+  }
+}
+@media (max-width: 700px) {
+  .tp-page {
+    padding-top: 65px;
+  }
+  .tp-hero-slider {
+    height: 340px;
+    margin-bottom: 48px;
+  }
+  .tp-hero-inner {
+    padding: 0 12px;
+  }
+  .tp-hero-caption p {
+    display: none;
+  }
+  .tp-hero-arrow {
+    width: 34px;
+    height: 34px;
+  }
+  .tp-hero-arrow.is-prev {
+    left: 8px;
+  }
+  .tp-hero-arrow.is-next {
+    right: 8px;
+  }
+  .tp-heading h2 {
+    font-size: 26px;
+  }
+  .tp-pills button {
+    padding: 0 13px;
+  }
+}

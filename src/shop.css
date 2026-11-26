@@ -1,0 +1,752 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap");
+
+.shop-page {
+  --shop-pine: #173d32;
+  --shop-cream: #f7f4ec;
+  --shop-gold: #c9a767;
+  --shop-paper: #fbfaf6;
+  font-family: "Noto Sans KR", "DM Sans", sans-serif;
+  background: var(--shop-paper);
+  color: #292c27;
+  min-height: 100vh;
+  padding-top: 75px;
+  padding-bottom: 80px;
+}
+.shop-page * {
+  box-sizing: border-box;
+}
+.shop-page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 사파리 크로스 브라우징 및 버튼 튕김 방지 기본 스타일 리셋 */
+.shop-page button,
+.shop-page input {
+  font: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+.shop-page button {
+  cursor: pointer;
+}
+
+/* ---------- 상단 인트로 ---------- */
+.shop-intro {
+  width: min(1349px, 90%);
+  min-height: 345px;
+  margin: 0 auto 100px;
+  padding: 35px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.shop-intro-copy {
+  position: relative;
+  z-index: 1;
+  padding-top: 14px;
+}
+.shop-intro-copy .eyebrow,
+.shop-catalog .eyebrow {
+  color: #a08b60;
+  font:
+    600 9px "DM Sans",
+    sans-serif;
+  letter-spacing: 0.19em;
+}
+.shop-intro-copy h1 {
+  margin: 13px 0 9px;
+  color: var(--shop-pine);
+  font:
+    400 clamp(30px, 4vw, 46px) / 1.45 "Gowun Batang",
+    serif;
+  letter-spacing: -0.045em;
+}
+.shop-intro-copy h1 em {
+  color: #a24d4b;
+  font-style: normal;
+}
+.shop-intro-copy > p:not(.eyebrow) {
+  margin: 0;
+  color: #79786d;
+  font-size: 11px;
+  line-height: 1.8;
+}
+.shop-intro-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: 20px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #b9a578;
+  color: var(--shop-pine) !important;
+  font-size: 10px;
+}
+.shop-intro-art {
+  position: absolute;
+  right: 0;
+  top: 34px;
+  bottom: 23px;
+  height: 100%;
+  width: 48%;
+  overflow: hidden;
+  background: #293d30;
+}
+.shop-intro-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(13, 38, 30, 0.18),
+    rgba(13, 38, 30, 0.02)
+  );
+}
+.shop-intro-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.shop-art-seal {
+  position: absolute;
+  z-index: 1;
+  right: 20px;
+  bottom: 18px;
+  width: 66px;
+  height: 66px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: 1px solid rgba(231, 213, 174, 0.8);
+  border-radius: 50%;
+  color: #f0dfba;
+  transform: rotate(9deg);
+}
+.shop-art-seal small {
+  text-align: center;
+  font:
+    6px / 1.35 "DM Sans",
+    sans-serif;
+  letter-spacing: 0.12em;
+}
+
+/* ---------- 카탈로그 (검색 / 카테고리 / 상품 그리드) ---------- */
+.shop-catalog {
+  width: min(1349px, 90%);
+  margin: 0 auto;
+  padding: 32px 0 77px;
+  scroll-margin-top: 20px;
+}
+.shop-catalog-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 25px;
+  padding-bottom: 21px;
+  border-bottom: 1px solid #e6e1d7;
+}
+.shop-catalog-heading h2 {
+  margin: 8px 0 5px;
+  color: var(--shop-pine);
+  font:
+    400 30px "Gowun Batang",
+    serif;
+}
+.shop-catalog-subtitle {
+  margin: 0;
+  color: #868278;
+  font-size: 10px;
+}
+.shop-search {
+  width: min(290px, 38%);
+  height: 40px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid #e0dace;
+  color: #8c816b;
+  background: #fffefa;
+  border-radius: 4px;
+}
+.shop-search input {
+  flex: 1;
+  min-width: 20px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #31372f;
+  font-size: 10px;
+}
+.shop-search input:focus-visible {
+  outline: 0;
+}
+.shop-search input::placeholder {
+  color: #aaa497;
+}
+.shop-search button {
+  border: 0;
+  background: transparent;
+  color: #908a7e;
+  display: grid;
+  place-items: center;
+}
+
+.shop-category-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 17px 0 10px;
+  border-bottom: 1px solid #e9e4da;
+}
+.shop-category-pills {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.shop-category-pills button {
+  min-height: 32px;
+  padding: 0 13px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  color: #77766c;
+  background: transparent;
+  font-size: 9px;
+  transition: all 0.18s;
+}
+.shop-category-pills button:hover {
+  border-color: #d5cab1;
+  color: var(--shop-pine);
+}
+.shop-category-pills button.is-selected {
+  border-color: var(--shop-pine);
+  color: #fff;
+  background: var(--shop-pine);
+}
+.shop-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex: 0 0 auto;
+  border: 0;
+  background: transparent;
+  color: #6a6c62;
+  font-size: 9px;
+}
+.shop-result-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0 2px;
+  color: #969184;
+  font-size: 9px;
+}
+.shop-product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 19px;
+  padding-top: 11px;
+}
+
+.shop-product-card {
+  min-width: 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+.shop-product-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 4.7;
+  overflow: hidden;
+  background: #eee9df;
+  border-radius: 4px;
+}
+.shop-product-image > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.25, 1);
+}
+.shop-product-card:hover .shop-product-image > img {
+  transform: scale(1.045);
+}
+.shop-product-badge {
+  position: absolute;
+  left: 11px;
+  top: 11px;
+  padding: 6px 8px;
+  background: rgba(251, 249, 241, 0.95);
+  color: var(--shop-pine);
+  font-size: 8px;
+  border-radius: 2px;
+}
+.shop-favorite {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--shop-pine);
+  background: rgba(255, 254, 249, 0.93);
+  z-index: 10;
+  padding: 0;
+}
+.shop-favorite.is-active {
+  color: #a34d4e;
+}
+.shop-quick-add {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 0;
+  background: rgba(255, 254, 249, 0.95);
+  color: var(--shop-pine);
+  font-size: 10px;
+  border-radius: 4px;
+  opacity: 0;
+  transform: translateY(7px);
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+}
+.shop-product-card:hover .shop-quick-add,
+.shop-quick-add:focus-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.shop-product-category {
+  margin: 13px 0 5px;
+  color: #9c8b6a;
+  font-size: 9px;
+}
+.shop-product-card h3 {
+  margin: 0;
+  color: #343a33;
+  font-size: 12px;
+  font-weight: 500;
+}
+.shop-product-desc {
+  margin: 4px 0 0;
+  color: #868278;
+  font-size: 10px;
+  line-height: 1.45;
+}
+.shop-product-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+.shop-product-bottom strong {
+  color: var(--shop-pine);
+  font:
+    600 13px "DM Sans",
+    sans-serif;
+}
+.shop-product-bottom button {
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #ddd7ca;
+  background: transparent;
+  color: var(--shop-pine);
+  border-radius: 4px;
+  padding: 0;
+  transition: all 0.2s;
+}
+.shop-product-bottom button:hover {
+  background: var(--shop-pine);
+  color: white;
+  border-color: var(--shop-pine);
+}
+.shop-empty {
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #94886d;
+}
+.shop-empty p {
+  margin: 0;
+  color: #77766c;
+  font-size: 12px;
+}
+.shop-empty button {
+  border: 0;
+  background: transparent;
+  color: var(--shop-pine);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  font-size: 10px;
+}
+
+/* =========================================================
+   하단 통합 배너 (왼쪽 꽉 찬 배경 이미지 / 오른쪽 상품 캐러셀)
+   ========================================================= */
+.shop-category-banner-box {
+  width: min(1349px, 90%);
+  min-height: 380px;
+  margin: 24px auto 0;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+/* 배너가 여러 개 추가될 때 배너 사이 간격 */
+.shop-category-banner-box + .shop-category-banner-box {
+  margin-top: 32px;
+}
+
+/* 왼쪽: 이미지로 꽉 찬 영역 */
+.banner-left-category {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 32px;
+  background-color: #173d32;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* 어떤 배경 이미지를 넣어도 글자가 잘 보이도록 은은한 오버레이 */
+.banner-left-category::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.32) 0%,
+    rgba(0, 0, 0, 0.14) 50%,
+    rgba(0, 0, 0, 0.36) 100%
+  );
+  pointer-events: none;
+}
+.banner-left-header,
+.banner-left-btn {
+  position: relative;
+  z-index: 1;
+}
+.banner-left-header h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0 0 10px;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+.banner-left-header p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0;
+  line-height: 1.5;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+}
+.banner-left-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.banner-left-btn:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* 오른쪽: 흰색 배경 상품 캐러셀 */
+.banner-right-carousel {
+  position: relative;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  padding: 28px 44px;
+  background: #ffffff;
+}
+.banner-carousel-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 4px 2px;
+  width: 100%;
+  scrollbar-width: none;
+}
+.banner-carousel-track::-webkit-scrollbar {
+  display: none;
+}
+.banner-carousel-item {
+  flex: 0 0 215px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.banner-item-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f6f6f6;
+}
+.banner-item-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.25s ease;
+}
+.banner-carousel-item:hover .banner-item-thumb img {
+  transform: scale(1.04);
+}
+.banner-item-add {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.94);
+  color: #222;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+.banner-item-add:hover {
+  background: var(--shop-pine);
+  color: #ffffff;
+  transform: scale(1.06);
+}
+.banner-item-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.banner-item-cat {
+  font-size: 12px;
+  color: #888;
+  margin: 0;
+}
+.banner-item-meta h3 {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+  color: #222;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.banner-item-meta strong {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111;
+  margin-top: 2px;
+}
+/* 캐러셀 좌우 화살표 */
+.banner-carousel-arrow {
+  position: absolute;
+  top: 44%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.96);
+  color: #222;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+.banner-carousel-arrow:hover {
+  background: #ffffff;
+  transform: translateY(-50%) scale(1.06);
+}
+.banner-carousel-arrow.prev {
+  left: 12px;
+}
+.banner-carousel-arrow.next {
+  right: 12px;
+}
+
+/* =========================================================
+   반응형 스타일
+   ========================================================= */
+@media (max-width: 820px) {
+  .shop-category-banner-box {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .shop-category-banner-box + .shop-category-banner-box {
+    margin-top: 24px;
+  }
+  .banner-left-category {
+    min-height: 220px;
+    padding: 24px;
+  }
+  .banner-right-carousel {
+    padding: 20px 16px;
+  }
+  .banner-carousel-item {
+    flex: 0 0 165px;
+  }
+}
+@media (max-width: 800px) {
+  .shop-intro,
+  .shop-catalog {
+    width: 90%;
+  }
+  .shop-product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px 14px;
+  }
+  .shop-product-image {
+    aspect-ratio: 4/4.6;
+  }
+  .shop-quick-add {
+    display: none;
+  }
+}
+@media (max-width: 560px) {
+  .shop-page {
+    padding-top: 65px;
+  }
+  .shop-intro {
+    min-height: 470px;
+    align-items: flex-start;
+    padding-top: 40px;
+  }
+  .shop-intro-copy {
+    padding-top: 0;
+  }
+  .shop-intro-copy h1 {
+    font-size: 32px;
+  }
+  .shop-intro-copy > p:not(.eyebrow) {
+    max-width: 260px;
+    font-size: 9px;
+  }
+  .shop-intro-art {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 190px;
+  }
+  .shop-art-seal {
+    width: 55px;
+    height: 55px;
+    right: 12px;
+    bottom: 10px;
+  }
+  .shop-catalog {
+    padding: 28px 0 53px;
+  }
+  .shop-catalog-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .shop-catalog-heading h2 {
+    font-size: 27px;
+  }
+  .shop-search {
+    width: 100%;
+  }
+  .shop-category-row {
+    align-items: flex-start;
+    max-width: 100px;
+  }
+  .shop-category-pills {
+    gap: 4px;
+  }
+  .shop-category-pills button {
+    min-height: 29px;
+    padding: 0 9px;
+    font-size: 8px;
+  }
+  .shop-sort {
+    margin-top: 7px;
+    font-size: 8px;
+  }
+  .shop-product-grid {
+    gap: 23px 10px;
+  }
+  .shop-product-badge {
+    top: 7px;
+    left: 7px;
+    padding: 5px 6px;
+    font-size: 7px;
+  }
+  .shop-favorite {
+    top: 6px;
+    right: 6px;
+    width: 28px;
+    height: 28px;
+  }
+  .shop-favorite svg {
+    width: 16px;
+  }
+  .shop-product-category {
+    margin-top: 9px;
+    font-size: 8px;
+  }
+  .shop-product-card h3 {
+    font-size: 10px;
+  }
+  .shop-product-bottom strong {
+    font-size: 12px;
+  }
+  .shop-product-bottom button {
+    width: 27px;
+    height: 27px;
+  }
+}
